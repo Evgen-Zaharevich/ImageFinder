@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 // import { Component } from 'react';
+
 import { createPortal } from 'react-dom';
 import { Overlay, ModalContainer, Image } from './Modal.styled';
 
@@ -72,9 +73,3 @@ Modal.propTypes = {
 //     );
 //   }
 // }
-
-// Modal.propTypes = {
-//   largeURL: PropTypes.string.isRequired,
-//   tags: PropTypes.string.isRequired,
-//   toggleModal: PropTypes.func.isRequired,
-// };
