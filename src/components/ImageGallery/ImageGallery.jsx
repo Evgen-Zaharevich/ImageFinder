@@ -14,7 +14,7 @@ export const ImageGallery = () => {
   const [error, setError] = useState(null);
   const [showButton, setShowButton] = useState(false);
   const [empty, setEmpty] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+
   const [loading, setLoading] = useState(false);
 
   const getSearchQueryValue = searchQuery => {
@@ -23,35 +23,39 @@ export const ImageGallery = () => {
     setPage(1);
     setError(null);
     setEmpty(false);
-    setShowModal(false);
     setLoading(false);
   };
 
   useEffect(() => {
-    getPictures(searchQuery, page);
-  }, [searchQuery, page]);
+    // умова щоб при першому рендері на головній сторінці не рендерилися картинки, а тільки після першого запиту у пошуку
 
-  const getPictures = async (searchQuery, page) => {
-    setLoading(true);
+    // if (searchQuery === '') {
+    //   return
+    // }
 
-    try {
-      const { hits } = await FetchImages(searchQuery, page);
-      // умова для рендеру меседжу при не вірному запиті в input
-      if (hits.length === 0 && pictures.length === 0) {
-        setEmpty(true);
+    const getPictures = async () => {
+      setLoading(true);
+
+      try {
+        const { hits } = await FetchImages(searchQuery, page);
+
+        // умова для рендеру меседжу при не вірному запиті в input
+        if (hits.length === 0) {
+          setEmpty(true);
+        }
+
+        // умова щоб кнопка <loadMore> не рендерилися якщо з бекенду більше не приходять картинки
+        setShowButton(hits.length === 12);
+
+        setPictures(prevState => [...prevState, ...hits]);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
       }
-
-      // умова для не рендеру компоненту button load more коли картинки на бекенді закінчилися
-      const resultVisionButton = hits.length === 12;
-
-      setPictures(prevState => [...prevState, ...hits]);
-      setShowButton(resultVisionButton);
-      setLoading(false);
-    } catch (error) {
-      setError(error.message);
-      setLoading(false);
-    }
-  };
+    };
+    getPictures();
+  }, [searchQuery, page]);
 
   const loadMore = () => {
     setPage(prevState => prevState + 1);
