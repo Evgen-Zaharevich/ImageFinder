@@ -23,7 +23,7 @@ export const Modal = ({ largeURL, tags, toggleModal }) => {
     return () => {
       window.removeEventListener('keydown', closeModal);
     };
-  }, []);
+  });
 
   return createPortal(
     <Overlay onClick={closeModal}>
