@@ -18,6 +18,4 @@ export const ModalContainer = styled.div`
   max-height: calc(100vh - 24px);
 `;
 
-export const Image = styled.img`
-  /* max-width: 100%; */
-`;
+export const Image = styled.img``;
