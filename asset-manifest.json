@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/ImageFinder/static/js/main.c72dc77f.js",
+    "main.js": "/ImageFinder/static/js/main.8bb19fdf.js",
     "index.html": "/ImageFinder/index.html",
-    "main.c72dc77f.js.map": "/ImageFinder/static/js/main.c72dc77f.js.map"
+    "main.8bb19fdf.js.map": "/ImageFinder/static/js/main.8bb19fdf.js.map"
   },
   "entrypoints": [
-    "static/js/main.c72dc77f.js"
+    "static/js/main.8bb19fdf.js"
   ]
 }
