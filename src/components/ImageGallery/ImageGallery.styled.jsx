@@ -16,7 +16,7 @@ export const ImageGalleryList = styled.ul`
 export const ButtonLoadMore = styled.button`
   padding: 8px 16px;
   border-radius: 2px;
-  background-color: #3f51b5;
+  background: linear-gradient(to right, #f79d00, #64f38c);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;
@@ -37,6 +37,6 @@ export const ButtonLoadMore = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #303f9f;
+    background: linear-gradient(to right, #ffb300, #69ff93);
   }
 `;

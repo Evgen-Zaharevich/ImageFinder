@@ -5,8 +5,8 @@ import {
   Searchbar,
   SearchForm,
   SearchFormButton,
-  SearchFormButtonLabel,
   SearchFormInput,
+  MdOutlineImageSearch,
 } from './SearchBar.styled';
 
 export const SearchBar = ({ searchQuery }) => {
@@ -26,7 +26,7 @@ export const SearchBar = ({ searchQuery }) => {
     <Searchbar>
       <SearchForm onSubmit={onSubmit}>
         <SearchFormButton>
-          <SearchFormButtonLabel>Search</SearchFormButtonLabel>
+          <MdOutlineImageSearch />
         </SearchFormButton>
 
         <SearchFormInput
